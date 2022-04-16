@@ -219,6 +219,9 @@ public abstract class Game {
 	 * Id of the sprite type "wall".
 	 */
 	private int wallId;
+	
+	// Action marker ID
+	private int actionMarkerID;
 
 	/**
 	 * Flag that can only be set to true externally. If true, the agent is
@@ -285,6 +288,7 @@ public abstract class Game {
 		// accordingly!
 		VGDLRegistry.GetInstance().registerSprite("wall");
 		VGDLRegistry.GetInstance().registerSprite("avatar");
+		VGDLRegistry.GetInstance().registerSprite("actionMarker");
 	}
 
 	/**
@@ -341,6 +345,7 @@ public abstract class Game {
 		// We need here the default 2 sprites:
 		avatarId = VGDLRegistry.GetInstance().getRegisteredSpriteValue("avatar");
 		wallId = VGDLRegistry.GetInstance().getRegisteredSpriteValue("wall");
+		actionMarkerID = VGDLRegistry.GetInstance().getRegisteredSpriteValue("actionMarker");
 
 		// Initialize the sprite render order.
 		this.changeSpriteOrder(spOrder);
@@ -366,6 +371,11 @@ public abstract class Game {
 		Content avatarConst = new SpriteContent("avatar", "MovingAvatar");
 		((SpriteContent) avatarConst).itypes.add(avatarId);
 		classConst[avatarId] = avatarConst;
+		
+		// Adding content definition for action marker
+		Content actionMarkerConst = new SpriteContent("actionMarker", "ActionMarker");
+		((SpriteContent)actionMarkerConst).itypes.add(actionMarkerID);
+		classConst[actionMarkerID] = actionMarkerConst;
 
 		// Now, the other constructors.
 		Set<Map.Entry<Integer, SpriteContent>> entries = constructors.entrySet();
@@ -419,6 +429,10 @@ public abstract class Game {
 
 		if (!iSubTypes[avatarId].contains(avatarId))
 			iSubTypes[avatarId].add(avatarId);
+		
+		// Add action marker to subtypes list
+		if(!iSubTypes[actionMarkerID].contains(actionMarkerID))
+			iSubTypes[actionMarkerID].add(actionMarkerID);
 
 		// Resources: use the list of resources created before to store limit
 		// and color of each resource.
