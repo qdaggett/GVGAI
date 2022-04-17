@@ -319,6 +319,7 @@ public abstract class Game {
 		for (int i = 0; i < no_players; i++) {
 			spriteOrder[spriteOrder.length - 1 - i] = avatarId;
 		}
+		
 		// 2. Other sprite types are sorted using spOrder
 		int i = 0;
 		for (Integer intId : spOrder) {
@@ -326,6 +327,14 @@ public abstract class Game {
 				spriteOrder[i++] = intId;
 			}
 		}
+		
+		// Make sure action marker is always on top
+		int temp;
+		
+		temp = spriteOrder[spriteOrder.length - 1];
+		spriteOrder[spriteOrder.length - 1] = actionMarkerID;
+		spriteOrder[0] = 1;
+		
 	}
 
 	/**

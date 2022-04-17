@@ -2,6 +2,7 @@ package ontology.avatar.oriented;
 
 import java.awt.Dimension;
 
+import core.vgdl.VGDLRegistry;
 import core.vgdl.VGDLSprite;
 import core.content.SpriteContent;
 import core.game.Game;
@@ -19,6 +20,7 @@ import tools.Vector2d;
  */
 public class OrientedAvatar extends MovingAvatar
 {
+	
     public OrientedAvatar(){}
 
     public OrientedAvatar(Vector2d position, Dimension size, SpriteContent cnt)
@@ -43,7 +45,6 @@ public class OrientedAvatar extends MovingAvatar
         rotateInPlace = true;
     }
 
-
     /**
      * This update call is for the game tick() loop.
      * @param game current state of the game.
@@ -60,6 +61,15 @@ public class OrientedAvatar extends MovingAvatar
         		Vector2d dir = lastDirection();
         		dir.normalise();
         		orientation = new Direction(dir.x, dir.y);
+        		
+        		VGDLSprite added = game.addSprite(2, this.getPosition());
+            	
+            	if(added != null)
+            	{
+            		added.setFromAvatar(true);
+            		System.out.println("Created " + added.img);
+            		System.out.println(VGDLRegistry.GetInstance().getRegisteredSpriteValue("actionMarker"));
+            	}
         	}
         }
         //Otherwise, orientation is already updated, no need to change anything.

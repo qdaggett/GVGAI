@@ -8,6 +8,9 @@ import tools.Vector2d;
 
 public class ActionMarker extends VGDLSprite
 {
+	
+	public String test = "ActionMarker img=oryx/bat1 hidden=true";
+	
 	public ActionMarker() {}
 	
 	public ActionMarker(Vector2d pos, Dimension size, SpriteContent cont)
@@ -16,7 +19,9 @@ public class ActionMarker extends VGDLSprite
 		
 		loadDefaults();
 		
-		this.parseParameters(cont);
+		SpriteContent content = new SpriteContent(test);
+		
+		this.parseParameters(content);
 		
 		postProcess();
 	}
@@ -29,10 +34,9 @@ public class ActionMarker extends VGDLSprite
 	protected void loadDefaults()
 	{
 		super.loadDefaults();
-		super.img = "oryx/bat1";
-		super.orientedImg = null;
+		is_oriented = true;
 		is_static = true;
-		hidden = "true";
+		rotateInPlace = true;
 		
 	}
 	
