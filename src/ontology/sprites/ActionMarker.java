@@ -10,13 +10,13 @@ public class ActionMarker extends VGDLSprite
 {
 	public ActionMarker() {}
 	
-	public ActionMarker(Vector2d pos, Dimension size /*SpriteContent cont*/)
+	public ActionMarker(Vector2d pos, Dimension size, SpriteContent cont)
 	{
 		this.init(pos, size);
 		
 		loadDefaults();
 		
-		//this.parseParameters(cont);
+		this.parseParameters(cont);
 		
 		postProcess();
 	}

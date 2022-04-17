@@ -313,6 +313,7 @@ public abstract class Game {
 		// We need here the default 2 sprites:
 		avatarId = VGDLRegistry.GetInstance().getRegisteredSpriteValue("avatar");
 		wallId = VGDLRegistry.GetInstance().getRegisteredSpriteValue("wall");
+		actionMarkerID = VGDLRegistry.GetInstance().getRegisteredSpriteValue("actionMarker");
 
 		// 1. "avatar" ALWAYS at the end of the array.
 		for (int i = 0; i < no_players; i++) {

@@ -167,11 +167,6 @@ public class MovingAvatar extends VGDLSprite {
 
         this.player.logAction(action);
         
-        // Placing action markers
-        ActionMarker newActionMarker = new ActionMarker(this.getPosition(), this.size);
-        
-        actionMarkers.add(newActionMarker);
-        
         game.setAvatarLastAction(action, getPlayerID());
         ki.reset(getPlayerID());
         ki.setAction(action, getPlayerID());
