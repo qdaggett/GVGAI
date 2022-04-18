@@ -10,6 +10,7 @@ import ontology.Types;
 import ontology.avatar.MovingAvatar;
 import tools.Direction;
 import tools.Vector2d;
+import ontology.sprites.ActionMarker;
 
 /**
  * Created with IntelliJ IDEA.
@@ -66,6 +67,7 @@ public class OrientedAvatar extends MovingAvatar
             	
             	if(added != null)
             	{
+            		added._updateOrientation(orientation);
             		added.setFromAvatar(true);
             		System.out.println("Created " + added.img);
             		System.out.println(VGDLRegistry.GetInstance().getRegisteredSpriteValue("actionMarker"));
