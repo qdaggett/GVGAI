@@ -69,8 +69,8 @@ public class OrientedAvatar extends MovingAvatar
             	{
             		added._updateOrientation(orientation);
             		added.setFromAvatar(true);
-            		System.out.println("Created " + added.img);
-            		System.out.println(VGDLRegistry.GetInstance().getRegisteredSpriteValue("actionMarker"));
+            		//System.out.println("Created " + added.img);
+            		//System.out.println(VGDLRegistry.GetInstance().getRegisteredSpriteValue("actionMarker"));
             	}
         	}
         }
