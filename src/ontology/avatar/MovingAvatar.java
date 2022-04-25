@@ -10,6 +10,7 @@ import core.game.Game;
 import core.player.Player;
 import ontology.Types;
 import ontology.Types.ACTIONS;
+import ontology.sprites.ActionMarker;
 import tools.*;
 
 /**
@@ -23,6 +24,9 @@ public class MovingAvatar extends VGDLSprite {
 
     public ArrayList<Types.ACTIONS> actions;
     public ArrayList<Types.ACTIONS> actionsNIL;
+    
+    public ArrayList<ActionMarker> actionMarkers; // All action markers
+    
     public Player player;
     private int playerID;
     private double score = 0.0;
@@ -58,6 +62,8 @@ public class MovingAvatar extends VGDLSprite {
         super.loadDefaults();
         actions = new ArrayList<Types.ACTIONS>();
         actionsNIL = new ArrayList<Types.ACTIONS>();
+        
+        actionMarkers = new ArrayList<ActionMarker>();
 
         color = Types.WHITE;
         speed = 1;
@@ -160,6 +166,7 @@ public class MovingAvatar extends VGDLSprite {
         }
 
         this.player.logAction(action);
+        
         game.setAvatarLastAction(action, getPlayerID());
         ki.reset(getPlayerID());
         ki.setAction(action, getPlayerID());

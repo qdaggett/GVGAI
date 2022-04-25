@@ -336,6 +336,8 @@ public class VGDLParser {
 		// We need these 2 here:
 		spriteOrderTmp.add(VGDLRegistry.GetInstance().getRegisteredSpriteValue("wall"));
 		spriteOrderTmp.add(VGDLRegistry.GetInstance().getRegisteredSpriteValue("avatar"));
+		spriteOrderTmp.add(VGDLRegistry.GetInstance().getRegisteredSpriteValue("actionMarker"));
+		
 
 		_parseSprites(elements, null, new HashMap<String, String>(), new ArrayList<String>());
 
